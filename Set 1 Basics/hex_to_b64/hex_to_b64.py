@@ -16,6 +16,18 @@ def hex_to_bytes(hex_str):
         byte_list.append((upper_nibble << 4) | lower_nibble)
     return byte_list
 
+def int_to_hex(i):
+    """Get hex character for integer value."""
+    return HEX_CHARS[i]
+
+def bytes_to_hex(byte_list):
+    """Convert array of integers into hex encoded string."""
+    hex_str = ""
+    for b in byte_list:
+        hex_str += int_to_hex(b >> 4)
+        hex_str += int_to_hex(b & 15)
+    return hex_str
+
 def int_to_base64(i):
     """Get base 64 encoding of integer."""
     return B64_CHARS[i]
