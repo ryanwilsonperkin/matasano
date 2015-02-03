@@ -61,5 +61,5 @@ if __name__ == "__main__":
         print bytes_to_base64(byte_list)
     else:
         print "error: missing hex string"
-        print "usage: python hex_to_b64.py <hex_string>"
+        print "usage: python convert.py <hex_string>"
         sys.exit(1)
