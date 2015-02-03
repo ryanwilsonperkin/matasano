@@ -11,8 +11,8 @@ def hex_to_bytes(hex_str):
     if len(hex_str) % 2 == 1:
         hex_str = '0' + hex_str
     for upper_hex, lower_hex in map(''.join, zip(*[iter(hex_str)]*2)):
-        upper_nibble = hex_char_to_int(upper_hex) 
-        lower_nibble = hex_char_to_int(lower_hex) 
+        upper_nibble = hex_to_int(upper_hex) 
+        lower_nibble = hex_to_int(lower_hex) 
         byte_list.append((upper_nibble << 4) | lower_nibble)
     return byte_list
 
