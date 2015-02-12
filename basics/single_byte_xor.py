@@ -17,7 +17,7 @@ def candidates(byte_list):
         ranking = rank(clear_text)
         candidates.append(Candidate(byte, clear_text, ranking))
 
-    return sorted(candidates, reverse=True, key=lambda x: x[2])
+    return sorted(candidates, reverse=True, key=lambda x: x.ranking)
 
 if __name__ == "__main__":
     input_str = argv[1]
