@@ -1,5 +1,4 @@
 from collections import namedtuple
-from sys import argv
 from convert import hex_to_bytes, bytes_to_hex
 from xor import xor_bytes
 
@@ -21,7 +20,8 @@ def candidates(cipher):
     return sorted(candidates, reverse=True, key=lambda x: x.ranking)
 
 if __name__ == "__main__":
-    input_str = argv[1]
+    import sys
+    input_str = sys.argv[1]
     cipher = hex_to_bytes(input_str)
     top_candidate = candidates(cipher)[0]
     print "CIPHER: {0}".format(bytes_to_hex(top_candidate.cipher))
