@@ -1,7 +1,5 @@
 def xor_bytes(list1, list2):
-   """XOR two buffers of the same length.""" 
-   if len(list1) != len(list2):
-       raise IndexError('lists must be the same length')
+   """XOR two buffers.""" 
    return [int(e1) ^ int(e2) for e1, e2 in zip(list1, list2)] 
 
 if __name__ == "__main__":
