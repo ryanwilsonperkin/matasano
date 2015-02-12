@@ -8,11 +8,12 @@ if __name__ == "__main__":
     with open(input_file) as f:
         for line in f:
             line = line[:-1] if line.endswith('\n') else line
-            line_bytes = hex_to_bytes(line)
-            candidate_list.extend(candidates(line_bytes))
-
+            cipher = hex_to_bytes(line)
+            top_candidate = candidates(cipher)[0]
+            candidate_list.append(top_candidate)
     candidate_list.sort(reverse=True, key=lambda x: x.ranking)
     top_candidate = candidate_list[0]
-    print "HEX: {0}".format(bytes_to_hex([ord(c) for c in top_candidate[1]]))
-    print "ASCII: {0}".format(top_candidate.clear_text)
+    print "CIPHER: {0}".format(bytes_to_hex(top_candidate.cipher))
+    print "CLEAR: {0}".format(bytes_to_hex(top_candidate.clear))
+    print "DECODED: {0}".format(''.join(chr(b) for b in top_candidate.clear))
     print "XOR Byte: {0}".format(top_candidate.key)
