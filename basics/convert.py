@@ -1,7 +1,7 @@
 HEX_CHARS = '0123456789abcdef'
 B64_CHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/'
 
-def ascii_to_bytelist(ascii_str):
+def str_to_bytelist(ascii_str):
     """Convert an ascii string to array of integer values."""
     return [ord(c) for c in ascii_str]
 
@@ -60,14 +60,3 @@ def bytelist_to_base64(bytelist):
         base64_str += int_to_base64((b2 << 2) & 60)
         base64_str += "="
     return base64_str
-
-if __name__ == "__main__":
-    import sys
-    if len(sys.argv) == 2:
-        hex_str = sys.argv[1]
-        bytelist = hex_to_bytelist(hex_str)
-        print bytelist_to_base64(bytelist)
-    else:
-        print "error: missing hex string"
-        print "usage: python convert.py <hex_string>"
-        sys.exit(1)
