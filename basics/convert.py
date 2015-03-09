@@ -40,6 +40,10 @@ def int_to_base64(i):
     """Get base 64 encoding of integer."""
     return B64_CHARS[i]
 
+def base64_to_int(b):
+    """Get int value of base64 character."""
+    return B64_CHARS.index(b)
+
 def bytelist_to_base64(bytelist):
     """Convert array of integers into base 64 encoded string."""
     base64_str = ""
@@ -60,3 +64,28 @@ def bytelist_to_base64(bytelist):
         base64_str += int_to_base64((b2 << 2) & 60)
         base64_str += "="
     return base64_str
+
+def base64_to_bytelist(base64_str):
+    """Convert base 64 encoded string into an array of integers."""
+    bytelist = []
+    n_padding = base64_str.count('=')
+    base64_str = base64_str.rstrip('=')
+    for c1, c2, c3, c4 in zip(*[iter(base64_str)]*4):
+        i1, i2, i3, i4 = map(base64_to_int, [c1, c2, c3, c4])
+        bytelist.append((i1 << 2) | (i2 >> 4))
+        bytelist.append(((i2 << 4) & 255) | (i3 >> 2))
+        bytelist.append(((i3 << 6) & 255) | i4)
+
+    if n_padding == 1:
+        c1, c2, c3 = base64_str[-3:]
+        i1, i2, i3 = map(base64_to_int, [c1, c2, c3])
+        bytelist.append((i1 << 2) | (i2 >> 4))
+        bytelist.append(((i2 << 4) & 255) | (i3 >> 2))
+    elif n_padding == 2:
+        c1, c2 = base64_str[-2:]
+        i1, i2 = map(base64_to_int, [c1, c2])
+        bytelist.append((i1 << 2) | (i2 >> 4))
+    elif n_padding != 0:
+        raise ValueError('Invalid padding')
+
+    return bytelist
