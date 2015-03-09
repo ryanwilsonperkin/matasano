@@ -21,7 +21,10 @@ def candidates(cipher):
 
 if __name__ == "__main__":
     import sys
-    input_str = sys.argv[1]
+    if len(sys.argv) == 2:
+        input_str = sys.argv[1]
+    else:
+        input_str = sys.stdin.read()
     cipher = hex_to_bytelist(input_str)
     top_candidate = candidates(cipher)[0]
     print "CIPHER: {0}".format(bytelist_to_hex(top_candidate.cipher))

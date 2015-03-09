@@ -13,7 +13,11 @@ if __name__ == "__main__":
     import sys
     offset = 0
     key = ascii_to_bytelist(sys.argv[1])
-    for line in sys.stdin:
+    if len(sys.argv) == 3:
+        in_file = open(sys.argv[2])
+    else:
+        in_file = sys.stdin
+    for line in in_file:
         clear = ascii_to_bytelist(line)
         cipher = encrypt(clear, rotate(key, offset))
         offset = (offset - len(clear) / len(key)) % len(key)
