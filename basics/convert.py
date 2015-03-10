@@ -89,3 +89,8 @@ def base64_to_bytelist(base64_str):
         raise ValueError('Invalid padding')
 
     return bytelist
+
+def split_bytelist(bytelist, n):
+    """Split a bytelist into n chunks. Drop trailing bytes."""
+    return zip(*[iter(bytelist)]*n)
+
