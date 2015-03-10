@@ -1,4 +1,4 @@
-from convert import str_to_bytes, bytes_to_str, split_bytes
+from convert import split_bytes
 from hamming import avg_distance
 from xor import xor_bytes
 from single_byte_xor import candidates

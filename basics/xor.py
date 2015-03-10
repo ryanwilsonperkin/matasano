@@ -1,6 +1,6 @@
 def xor_bytes(list1, list2):
    """XOR two buffers.""" 
-   return [int(e1) ^ int(e2) for e1, e2 in zip(list1, list2)] 
+   return bytearray(e1 ^ e2 for e1, e2 in zip(list1, list2))
 
 if __name__ == "__main__":
     import sys

@@ -1,5 +1,5 @@
 import sys
-from convert import base64_to_bytes, bytes_to_str
+from convert import base64_to_bytes
 
 if __name__ == "__main__":
     if len(sys.argv) == 2:
@@ -8,4 +8,4 @@ if __name__ == "__main__":
         base64_str = sys.stdin.read()
 
     bytes = base64_to_bytes(base64_str)
-    sys.stdout.write(bytes_to_str(bytes))
+    sys.stdout.write(str(bytes))

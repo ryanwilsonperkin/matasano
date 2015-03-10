@@ -1,5 +1,5 @@
 import sys
-from convert import bytes_to_hex, str_to_bytes
+from convert import bytes_to_hex
 
 if __name__ == "__main__":
     if len(sys.argv) == 2:
@@ -7,5 +7,5 @@ if __name__ == "__main__":
     else:
         ascii_str = sys.stdin.read()
 
-    bytes = str_to_bytes(ascii_str)
+    bytes = bytearray(ascii_str)
     sys.stdout.write(bytes_to_hex(bytes))

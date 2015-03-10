@@ -1,14 +1,6 @@
 HEX_CHARS = '0123456789abcdef'
 B64_CHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/'
 
-def str_to_bytes(ascii_str):
-    """Convert an ascii string to array of integer values."""
-    return bytearray(ascii_str)
-
-def bytes_to_str(bytes):
-    """Convert array of integers into ascii string."""
-    return ''.join(chr(b) for b in bytes)
-
 def hex_to_int(h):
     """Get int value of hex character."""
     return HEX_CHARS.index(h)
