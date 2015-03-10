@@ -6,6 +6,9 @@ def encrypt(clear, key):
     key_repeated = [key.next() for c in clear]
     return xor_bytelist(clear, key_repeated)
 
+def decrypt(cipher, key):
+    return encrypt(cipher, key)
+
 def key_generator(key):
     while True:
         for elem in key:
