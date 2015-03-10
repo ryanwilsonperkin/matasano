@@ -1,5 +1,5 @@
 import sys
-from convert import bytelist_to_str, hex_to_bytelist
+from convert import bytes_to_str, hex_to_bytes
 
 if __name__ == "__main__":
     if len(sys.argv) == 2:
@@ -7,5 +7,5 @@ if __name__ == "__main__":
     else:
         hex_str = sys.stdin.read()
 
-    bytelist = hex_to_bytelist(hex_str)
-    sys.stdout.write(bytelist_to_str(bytelist))
+    bytes = hex_to_bytes(hex_str)
+    sys.stdout.write(bytes_to_str(bytes))

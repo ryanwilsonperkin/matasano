@@ -1,5 +1,5 @@
 import sys
-from convert import bytelist_to_base64, str_to_bytelist
+from convert import bytes_to_base64, str_to_bytes
 
 if __name__ == "__main__":
     if len(sys.argv) == 2:
@@ -7,5 +7,5 @@ if __name__ == "__main__":
     else:
         ascii_str = sys.stdin.read()
 
-    bytelist = str_to_bytelist(ascii_str)
-    sys.stdout.write(bytelist_to_base64(bytelist))
+    bytes = str_to_bytes(ascii_str)
+    sys.stdout.write(bytes_to_base64(bytes))
