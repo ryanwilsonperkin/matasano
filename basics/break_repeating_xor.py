@@ -1,6 +1,6 @@
 from convert import base64_to_bytelist, bytelist_to_str
 from hamming import distance
-from repeating_key_xor import decrypt
+from vignere import decrypt
 from single_byte_xor import candidates
 
 def average_distance(first_block, blocks):
