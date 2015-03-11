@@ -33,5 +33,5 @@ def auto_decrypt(bytes, keysize_min, keysize_max, n_blocks):
     blocks = split_bytes(bytes, keysize)
     transposed = zip(*blocks)
 
-    key = map(lambda block: candidates(block)[0].key, transposed)
+    key = bytearray(map(lambda block: candidates(block)[0].key, transposed))
     return decrypt(bytes, key), key
