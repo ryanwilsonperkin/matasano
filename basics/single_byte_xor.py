@@ -1,15 +1,9 @@
 from collections import namedtuple
 from convert import hex_to_bytes, bytes_to_hex
+from detect import rank
 from xor import xor_bytes
 
-COMMON_LETTERS = "ETAONRISHDL"
 Candidate = namedtuple('Candidate', ['key', 'cipher', 'clear', 'ranking'])
-
-def rank(bytes):
-    count_space = bytes.count(bytearray(' '))
-    count_upper = sum(bytes.count(bytearray(c)) for c in COMMON_LETTERS)
-    count_lower = sum(bytes.count(bytearray(c.lower())) for c in COMMON_LETTERS)
-    return count_space + count_upper + count_lower
 
 def candidates(cipher):
     candidates = [] 
