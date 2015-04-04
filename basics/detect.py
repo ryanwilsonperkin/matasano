@@ -1,4 +1,7 @@
+from collections import namedtuple
+
 COMMON_LETTERS = "ETAONRISHDL"
+Candidate = namedtuple('Candidate', ['key', 'cipher', 'clear', 'ranking'])
 
 def rank(bytes):
     count_space = bytes.count(bytearray(' '))

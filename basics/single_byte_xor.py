@@ -1,9 +1,6 @@
-from collections import namedtuple
 from convert import hex_to_bytes, bytes_to_hex
-from detect import rank
+from detect import rank, Candidate
 from xor import xor_bytes
-
-Candidate = namedtuple('Candidate', ['key', 'cipher', 'clear', 'ranking'])
 
 def candidates(cipher):
     candidates = [] 
